@@ -1,0 +1,39 @@
+{% extends 'layout.nunjucks' %}
+
+{% block pageTitle %}{{ gp.name }} - NHS.UK{% endblock %}
+
+{% block meta %}
+  {% include "includes/metadata/schema-org.nunjucks" %}
+  {% include "includes/metadata/opengraph.nunjucks" %}
+  {% include "includes/metadata/twitter.nunjucks" %}
+  {% include "includes/metadata/webtrends.nunjucks" %}
+  {% include "includes/metadata/nhs.nunjucks" %}
+{% endblock %}
+
+{% block headerClass %}local-header local-header--fullwidth local-header--no-padding{% endblock %}
+
+{% block header %}
+<h1 class="local-header__title">{{ gp.name }}</h1>
+{% endblock %}
+
+{% block pageIntro %}
+  {% include "includes/profile-header.nunjucks" %}
+{% endblock %}
+
+{% block content %}
+{% include "includes/online-tasks.nunjucks" %}
+
+<div class="reading-width">
+  {% include "includes/opening-times.nunjucks" %}
+
+  {% include "includes/patient-survey.nunjucks" %}
+
+  {% include "includes/gp-info.nunjucks" %}
+
+  {% include "includes/services.nunjucks" %}
+
+  {% include "includes/parking-accessibility.nunjucks" %}
+
+  {% include "includes/how-to-register.nunjucks" %}
+</div>
+{% endblock %}

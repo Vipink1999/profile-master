@@ -1,0 +1,20 @@
+{% extends 'layout.nunjucks' %}
+
+{% set message = 'Page not found' %}
+
+{% block pageTitle %} {{ message }} {% endblock %}
+
+{% block headerClass %}local-header-white-bg{% endblock %}
+
+{% block header %}
+<div class="local-header--question">
+  <h1 class="local-header--title--question">{{ message }}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="reading-width">
+    <p>If you have entered a web address check it was correct. You can <a href="http://nhs.uk/">browse from the NHS.UK home page</a>.</p>
+    <p><a href="{{ backLink }}" class="link-back">Back</a></p>
+  </div>
+{% endblock %}

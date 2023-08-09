@@ -1,0 +1,26 @@
+<!-- Schema.org Metadata Start -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Physician",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ gp.address.streetAddress }}",
+    "postalCode": "{{ gp.address.postcode }}"
+  },
+  "email": "{{ gp.contact.email }}",
+  "faxNumber": "{{ gp.contact.fax }}",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ gp.location.coordinates[1] }}",
+    "longitude": "{{ gp.location.coordinates[0] }}"
+    },
+  "identifier": "{{ gp.odsCode }}",
+  "isAcceptingNewPatients": "{{ gp.acceptingNewPatients }}",
+  "name": "{{ gp.name }}",
+  "telephone": "{{ gp.contact.telephone }}",
+  "url": "{{ gp.contact.website }}",
+  "openingHoursSpecification": {{ gp.schemaOrgOpeningTimes | dump | safe }}
+}
+</script>
+<!-- Schema.org Metadata End -->

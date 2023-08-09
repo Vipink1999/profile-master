@@ -1,0 +1,32 @@
+<!-- OpenGraph Metadata Start -->
+<meta property="og:url" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/{{ gp.odsCode }}" />
+<meta property="og:title" content="{{ gp.name }} - GP - NHS Choices" />
+<meta property="og:description" content="Official information from NHS Choices about {{ gp.name }} including contact details, directions, opening hours and service/treatment details." />
+<meta property="og:type" content="business.business" />
+
+<meta property="og:image" content="{{ hostNameAndProtocol }}{{ SITE_ROOT }}/images/opengraph-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+
+<meta property="business:contact_data:street_address" content="{{ gp.address.streetAddress }}" />
+<meta property="business:contact_data:postal_code" content="{{ gp.address.postcode }}" />
+<meta property="business:contact_data:country_name" content="United Kingdom" />
+<meta property="business:contact_data:email" content="{{ gp.contact.email }}" />
+<meta property="business:contact_data:phone_number" content="{{ gp.contact.telephone }}" />
+<meta property="business:contact_data:fax_number" content="{{ gp.contact.fax }}" />
+<meta property="business:contact_data:website" content="{{ gp.contact.website }}" />
+
+<meta property="place:location:latitude" content="{{ gp.location.coordinates[1] }}" />
+<meta property="place:location:longitude" content="{{ gp.location.coordinates[0] }}" />
+
+{% for day in gp.openGraphOpeningTimes %}
+  {% if day.sessions.length > 0 %}
+    <meta property="business:hours:day" content="{{ day.day }}" />
+    {% for session in day.sessions %}
+      <meta property="business:hours:start" content="{{ session.opens }}" />
+      <meta property="business:hours:end" content="{{ session.closes }}" />
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<!-- OpenGraph Metadata End -->
